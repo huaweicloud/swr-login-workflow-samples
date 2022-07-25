@@ -34,22 +34,18 @@ env:
   SWR_ORGANIZATION:  '<swr_organization>'   # SWR 组织名
   IMAGE_NAME: '<image_name>'     # 镜像名称
 jobs:
-  swr-login:
+  swr-push:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        
+
       - name: Log in to Huawei Cloud SWR
         uses: huaweicloud/swr-login@v2.0.0
         with:
           access-key-id: ${{ secrets.ACCESSKEY }}
           access-key-secret: ${{ secrets.SECRETACCESSKEY }}
-          region: ${{ env.REGION_ID }}  
+          region: ${{ env.REGION_ID }}
 
-  swr-push:
-    needs: swr-login
-    runs-on: ubuntu-latest
-    steps:
       - name: Build, Tag, and Push Image to Huawei Cloud SWR
         id: push-image
         env:
@@ -78,7 +74,7 @@ env:
   REGION_ID: '<region id>'   # example: cn-north-4
   IMAGE_URL: '<image url>'     # 镜像地址
 jobs:
-  swr-login:
+  swr-pull:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -90,13 +86,8 @@ jobs:
           access-key-secret: ${{ secrets.SECRETACCESSKEY }}
           region: ${{ env.REGION_ID }}  
 
-  swr-pull:
-    needs: swr-login
-    runs-on: ubuntu-latest
-    steps:
       - name: Pull Image from Huawei Cloud SWR
         id: pull-image
-        env:
         run: |
           docker pull ${{ env.IMAGE_URL }}
 ```
