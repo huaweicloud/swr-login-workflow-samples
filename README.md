@@ -92,3 +92,8 @@ jobs:
           docker pull ${{ env.IMAGE_URL }}
 ```
 详情可参考 [.github/workflows/pull-image-from-swr-demo.yml](.github/workflows/pull-image-from-swr-demo.yml)
+
+## 公网域名说明
+```
+使用提供的Dockerfile模板制作镜像时，拉取基础镜像地址：'docker.io/library/alpine'
+```
