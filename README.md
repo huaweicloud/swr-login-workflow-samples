@@ -40,7 +40,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Log in to Huawei Cloud SWR
-        uses: huaweicloud/swr-login@v2.0.0
+        uses: huaweicloud/swr-login@v2.1.0
         with:
           access-key-id: ${{ secrets.ACCESSKEY }}
           access-key-secret: ${{ secrets.SECRETACCESSKEY }}
@@ -80,7 +80,7 @@ jobs:
       - uses: actions/checkout@v2
         
       - name: Log in to Huawei Cloud SWR
-        uses: huaweicloud/swr-login@v2.0.0
+        uses: huaweicloud/swr-login@v2.1.0
         with:
           access-key-id: ${{ secrets.ACCESSKEY }}
           access-key-secret: ${{ secrets.SECRETACCESSKEY }}
