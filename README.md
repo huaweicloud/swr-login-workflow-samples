@@ -40,7 +40,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Log in to Huawei Cloud SWR
-        uses: huaweicloud/swr-login@v2.0.0
+        uses: huaweicloud/swr-login@v2.1.0
         with:
           access-key-id: ${{ secrets.ACCESSKEY }}
           access-key-secret: ${{ secrets.SECRETACCESSKEY }}
@@ -80,7 +80,7 @@ jobs:
       - uses: actions/checkout@v2
         
       - name: Log in to Huawei Cloud SWR
-        uses: huaweicloud/swr-login@v2.0.0
+        uses: huaweicloud/swr-login@v2.1.0
         with:
           access-key-id: ${{ secrets.ACCESSKEY }}
           access-key-secret: ${{ secrets.SECRETACCESSKEY }}
@@ -92,8 +92,3 @@ jobs:
           docker pull ${{ env.IMAGE_URL }}
 ```
 详情可参考 [.github/workflows/pull-image-from-swr-demo.yml](.github/workflows/pull-image-from-swr-demo.yml)
-
-## 公网域名说明
-```
-使用提供的Dockerfile模板制作镜像时，拉取基础镜像地址：'docker.io/library/alpine'
-```
